@@ -1,6 +1,16 @@
-# Rust's output directory
+# Rust output
 target
 
-# Local settings
+# Stellar local settings
 .soroban
 .stellar
+
+# Node
+frontend/node_modules
+frontend/.next
+frontend/.env*.local
+
+# IDE
+.idea
+.vscode
+*.swp

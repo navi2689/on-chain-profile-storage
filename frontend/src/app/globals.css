@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-dark: #0a0a0c;
     --card-bg: rgba(20, 20, 24, 0.7);
@@ -24,7 +26,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background-image: 
+    background-image:
         radial-gradient(circle at 15% 50%, rgba(138, 43, 226, 0.08), transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(76, 201, 240, 0.08), transparent 25%);
 }
@@ -40,7 +42,7 @@ header {
     margin-bottom: 3rem;
 }
 
-h1 {
+header h1 {
     font-size: 2.5rem;
     font-weight: 700;
     background: linear-gradient(90deg, #fff, #a0a0ab);
@@ -71,7 +73,7 @@ h1 {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-h2 {
+.card h2 {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -85,7 +87,7 @@ h2 {
     margin-bottom: 1.25rem;
 }
 
-label {
+.input-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
@@ -101,6 +103,7 @@ input, textarea {
     color: var(--text-main);
     font-size: 1rem;
     transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
 }
 
 input:focus, textarea:focus {
@@ -121,6 +124,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .primary-btn {
@@ -129,13 +133,18 @@ button {
     width: 100%;
 }
 
-.primary-btn:hover {
+.primary-btn:hover:not(:disabled) {
     background: var(--primary-hover);
     transform: translateY(-2px);
 }
 
-.primary-btn:active {
+.primary-btn:active:not(:disabled) {
     transform: translateY(0);
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .secondary-btn {
@@ -145,8 +154,13 @@ button {
     width: 100%;
 }
 
-.secondary-btn:hover {
+.secondary-btn:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.05);
+}
+
+.secondary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .grid-layout {
@@ -174,6 +188,7 @@ button {
     font-size: 0.9rem;
     text-align: center;
     min-height: 20px;
+    transition: color 0.2s ease;
 }
 
 .status-message.error {
@@ -197,6 +212,7 @@ button {
 .avatar-placeholder {
     width: 64px;
     height: 64px;
+    min-width: 64px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--primary), #4cc9f0);
     display: flex;
@@ -229,6 +245,7 @@ button {
     border-radius: 50%;
     border-top-color: white;
     animation: spin 1s ease-in-out infinite;
+    display: inline-block;
 }
 
 @keyframes spin {
@@ -249,6 +266,26 @@ button {
     padding: 0.8rem 2rem;
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-in-delay-1 {
+    animation: fadeIn 0.5s ease 0.1s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 0.5s ease 0.2s forwards;
+    opacity: 0;
+}
+
 @media (max-width: 768px) {
     .grid-layout {
         grid-template-columns: 1fr;
@@ -258,5 +295,8 @@ button {
     }
     .search-group button {
         width: 100%;
+    }
+    header h1 {
+        font-size: 1.8rem;
     }
 }

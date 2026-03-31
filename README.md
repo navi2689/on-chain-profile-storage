@@ -1,29 +1,18 @@
 # On-Chain Profile Storage 📇
 
-A fully functional, decentralized Web3 application built on the Stellar Soroban blockchain. This dApp allows users to securely store, retrieve, and search for personal profiles (Name and Bio) on-chain, featuring a sleek, premium dark-themed frontend and an optimized Rust smart contract.
+A fully functional, decentralized Web3 application built on the Stellar Soroban blockchain. This dApp allows users to securely store, retrieve, and search for personal profiles (Name and Bio) on-chain, featuring a sleek, premium dark-themed Next.js frontend and an optimized Rust smart contract.
 
 ## Deployment Details
 
 *   **Contract ID / Address:** `CCGI26FZKUOZBC5R7OLOZP6A7QP7AKT5VCD2342NIU5PIYEW7PLCM32X`
 *   **Network:** Stellar Testnet
 
-## Dashboard Overview
-
-<!-- This uses the second screenshot you provided -->
-![Dashboard Screenshot](./dashboard-2.png)
-
-## Stellar Lab Verification
-
-<!-- This uses the first screenshot you provided -->
-![Stellar Lab Screenshot](./stellar-lab-2.png)
-
-
 ## Features ✨
 
 *   **Non-Custodial Wallet Integration:** Securely connect and sign transactions using the [Freighter Browser Extension](https://www.freighter.app/).
 *   **On-Chain Identity:** Store your personal profile securely directly on the Stellar ledger using Soroban's `Persistent` storage maps.
 *   **Global Profile Search:** Look up any user's profile instantly on the network using their public Stellar wallet address.
-*   **Premium UI:** A beautiful, responsive, and modern dark-themed frontend built dynamically with HTML, CSS, and vanilla JavaScript.
+*   **Premium UI:** A beautiful, responsive, and modern dark-themed frontend built with Next.js and React.
 *   **Built-in Demo Mode:** An integrated sandbox feature to test out the UI and explore the dashboard without needing to connect a real wallet extension.
 
 ## Project Architecture 🏗️
@@ -31,7 +20,7 @@ A fully functional, decentralized Web3 application built on the Stellar Soroban 
 The project is divided into two main components:
 
 1.  **Smart Contract (`/contracts/profile-storage`)**: Written in Rust using the Soroban SDK. It handles the core logic, storing user data securely mapping `Address` to `(Name, Bio)` strings.
-2.  **Frontend (`/frontend`)**: A pure HTML/CSS/JS Web3 application that natively integrates with the `@stellar/stellar-sdk` and `@stellar/freighter-api` to interact with the deployed contract on the Soroban Testnet.
+2.  **Frontend (`/frontend`)**: A modern Next.js application that integrates with the `@stellar/stellar-sdk` and `@stellar/freighter-api` to interact with the deployed contract on the Soroban Testnet.
 
 ---
 
@@ -39,15 +28,15 @@ The project is divided into two main components:
 
 ### Prerequisites
 
-*   [Node.js](https://nodejs.org/) (optional, for running local servers)
+*   [Node.js](https://nodejs.org/) (v18+)
 *   [Rust](https://www.rust-lang.org/) and `Cargo`
 *   [Stellar CLI](https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup)
 *   `wasm32-unknown-unknown` target installed (`rustup target add wasm32-unknown-unknown`)
 *   [Freighter Wallet Extension](https://www.freighter.app/)
 
-### 1. Smart Contract 
+### 1. Smart Contract
 
-The core contract logic is located in the `contracts/profile-storage` directory. 
+The core contract logic is located in the `contracts/profile-storage` directory.
 
 1. Navigate to the contract directory:
    ```bash
@@ -72,19 +61,21 @@ The core contract logic is located in the `contracts/profile-storage` directory.
 
 ### 2. Frontend Application
 
-The frontend uses vanilla standard web technologies for ultimate performance and beginner friendliness.
+The frontend is built with Next.js.
 
 1. Navigate to the frontend directory from the root:
    ```bash
    cd frontend
    ```
-2. Start a local web server (you can use whatever static server you prefer):
+2. Install dependencies:
    ```bash
-   python -m http.server 3000
-   # OR
-   npx serve -l 3000
+   npm install
    ```
-3. Open your browser to `http://localhost:3000`.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser to `http://localhost:3000`.
 
 ### Connecting your Wallet
 
